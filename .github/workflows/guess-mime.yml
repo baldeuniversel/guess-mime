@@ -58,7 +58,7 @@ jobs:
       - name: Build executable with PyInstaller
         run: |
           pip install pyinstaller
-          pyinstaller --onefile --console --name guess-mime guess-mime/guess_mime/guess_mime.py
+          pyinstaller --onefile --console --name guess-mime guess_mime/guess_mime.py
           
       - name: Find and copy built executable
         run: |
