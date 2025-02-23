@@ -36,7 +36,7 @@ def main():
     # Check if there are more than 2 arguments (program name + 1 file)
     if len(sys.argv) != 2:
 
-        print(f"\U000026D4 Error: Only one file path is allowed at a time.") 
+        print(f"\U000026D4 Error: Only one file path is allowed at a time.")
         print("Please provide a single file path.")
         
         sys.exit(1)  # Exit the program with an error code

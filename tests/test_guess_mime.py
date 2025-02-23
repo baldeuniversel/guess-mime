@@ -1,6 +1,5 @@
-import pytest
-from guess_mime.guess_mime import GuessMime
 import os
+from guess_mime.guess_mime import GuessMime
 
 
 
@@ -113,4 +112,3 @@ def test_mime_unknown_file():
     mime, found = guesser.guess_mime(unknown_file)
     assert mime == "unknown/unknown", f"Expected 'unknown/unknown' but got {mime}"
     assert found is False, "MIME type should not be found"
-    
