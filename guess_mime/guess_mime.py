@@ -1,6 +1,6 @@
+from pathlib import Path
 import mimetypes
 import magic
-from pathlib import Path
 
 
 

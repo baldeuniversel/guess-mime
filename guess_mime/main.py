@@ -1,6 +1,6 @@
+import sys
 import argparse
 from guess_mime.guess_mime import GuessMime
-import sys
 
 
 
