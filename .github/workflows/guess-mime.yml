@@ -63,8 +63,8 @@ jobs:
       - name: Find and copy built executable
         run: |
           # Use `find` to dynamically locate the built executable in the dist folder
-          EXECUTABLE=$(find guess-mime/guess-mime/dist -type f -name "guess-mime" -executable)
-          find dist -type f -name "guess-mime" -executable
+          EXECUTABLE=$(find guess-mime -type f -name "guess-mime" -executable)
+          find guess-mime -type f -name "guess-mime" -executable
 
           #
           if [[ -n "$EXECUTABLE" ]]; 
