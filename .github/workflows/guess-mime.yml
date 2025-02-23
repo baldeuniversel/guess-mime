@@ -80,7 +80,7 @@ jobs:
             echo "Executable copied to \`output\` directory"
             
             # Rename the executable by adding the version
-            mv "output/$EXECUTABLE" "output/${EXECUTABLE}-${GUESS_MIME_VERSION}"
+            mv "$EXECUTABLE" "${EXECUTABLE}-${GUESS_MIME_VERSION}"
             
           else
             echo "Error: Executable not found!"
