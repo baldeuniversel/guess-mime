@@ -74,8 +74,9 @@ class GuessMime:
         try:
 
             mime = magic.Magic(mime=True)
-            mime_type = mime.from_file(str(file))  # Convert Path object to string
+            mime_type: Optional[str] = mime.from_file(str(file))  # mime_type can be Optional[str]
 
+            #
             if mime_type:
                 return (mime_type, True)
             
