@@ -36,7 +36,9 @@ class GuessMime:
         """
        
         self.file_path = file_path
-        self.file = Path(file_path) if file_path else None
+
+        # Optional[Path] means it can either be a Path or None
+        self.file: Optional[Path] = Path(file_path) if file_path else None
 
 
 
