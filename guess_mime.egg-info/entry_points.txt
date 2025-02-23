@@ -1,0 +1,2 @@
+[console_scripts]
+guess-mime = guess_mime.main:main
