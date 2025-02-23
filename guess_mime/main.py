@@ -1,3 +1,7 @@
+"""
+@overview A main file
+"""
+
 import sys
 import argparse
 from guess_mime.guess_mime import GuessMime
@@ -30,13 +34,13 @@ def main():
     # Check if there are no argument (just the program name)
     if len(sys.argv) == 1:
 
-        print(f"\U0001F6AB Error: You have to provide a file as an argument \U0001F9D0")
+        print("\U0001F6AB Error: You have to provide a file as an argument \U0001F9D0")
         sys.exit(1)  # Exit the program with an error code
 
     # Check if there are more than 2 arguments (program name + 1 file)
     if len(sys.argv) != 2:
 
-        print(f"\U000026D4 Error: Only one file path is allowed at a time.")
+        print("\U000026D4 Error: Only one file path is allowed at a time.")
         print("Please provide a single file path.")
         
         sys.exit(1)  # Exit the program with an error code

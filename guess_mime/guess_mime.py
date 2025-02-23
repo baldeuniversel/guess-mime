@@ -1,6 +1,11 @@
+"""
+@overview The class of the `guess-mime` program
+"""
+
 from pathlib import Path
 import mimetypes
 import magic
+from typing import Optional
 
 
 
@@ -21,7 +26,7 @@ class GuessMime:
 
 
 
-    def __init__(self, file_path:str = None):
+    def __init__(self, file_path: Optional[str] = None):
         """
         Initializes the GuessMime instance with the file path.
 
@@ -35,7 +40,7 @@ class GuessMime:
 
 
 
-    def guess_mime(self, file_path: str = None) -> tuple[str, bool]:
+    def guess_mime(self, file_path: Optional[str] = None) -> tuple[str, bool]:
         """
         Guesses the MIME type of the file.
 

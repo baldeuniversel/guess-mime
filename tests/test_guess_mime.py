@@ -1,3 +1,7 @@
+"""
+@overview A test file
+"""
+
 import os
 from guess_mime.guess_mime import GuessMime
 
