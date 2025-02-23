@@ -1,6 +1,6 @@
 .venv/ 
 .vscode/ 
-./guess_mime.egg-info/
+guess_mime.egg-info/
 **__pycache__/
 *.pyc
 *.pyo
