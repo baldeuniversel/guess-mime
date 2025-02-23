@@ -108,7 +108,7 @@ to the guess_mime function, the MIME type returned should be 'unknown/unknown'.
 The test ensures that the function behaves correctly in case of an invalid file path.
 """
 def test_mime_unknown_file():
-    
+
     unknown_file = "assets/media/unknown_file.txt"
     mime, found = guesser.guess_mime(unknown_file)
     assert mime == "unknown/unknown", f"Expected 'unknown/unknown' but got {mime}"
