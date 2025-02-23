@@ -34,14 +34,14 @@ def main():
     # Check if there are no argument (just the program name)
     if len(sys.argv) == 1:
 
-        print("\U0001F6AB Error: You have to provide a file as an argument \U0001F9D0")
+        print("\U0001F6AB Error: You have to provide a file as an argument \U0001F9D0", flush=True)
         sys.exit(1)  # Exit the program with an error code
 
     # Check if there are more than 2 arguments (program name + 1 file)
     if len(sys.argv) != 2:
 
-        print("\U000026D4 Error: Only one file path is allowed at a time.")
-        print("Please provide a single file path.")
+        print("\U000026D4 Error: Only one file path is allowed at a time.", flush=True)
+        print("Please provide a single file path.", flush=True)
         
         sys.exit(1)  # Exit the program with an error code
 
@@ -67,7 +67,7 @@ def main():
     mime, found = guess_mime_instance.guess_mime()
     
     # Output the result to the user, indicating the MIME type and whether it was found with confidence
-    print(f"\U0001F389 MIME Type: {mime} | Confidence: {'YES' if found else 'NO'} {'\U00002705' if found else '\U0000274C'}")
+    print(f"\U0001F389 MIME Type: {mime} | Confidence: {'YES' if found else 'NO'} {'\U00002705' if found else '\U0000274C'}", flush=True)
 
 
 
