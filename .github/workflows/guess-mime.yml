@@ -58,13 +58,13 @@ jobs:
       - name: Build executable with PyInstaller
         run: |
           pip install pyinstaller
-          pyinstaller --onefile --name guess_mime guess_mime/guess_mime.py
+          pyinstaller --onefile --name guess-mime guess_mime/guess_mime.py
           
       - name: Find and copy built executable
         run: |
           # Use `find` to dynamically locate the built executable in the dist folder
-          EXECUTABLE=$(find . -type f -name "guess_mime" -executable 2> /dev/null)
-          find . -type f -name "guess_mime" -executable 2> /dev/null
+          EXECUTABLE=$(find ./dist -type f -name "guess-mime" -executable 2> /dev/null)
+          find . -type f -name "guess-mime" -executable 2> /dev/null
 
           #
           if [[ -n "$EXECUTABLE" ]]; 
