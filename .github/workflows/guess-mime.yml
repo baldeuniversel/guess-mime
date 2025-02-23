@@ -39,7 +39,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest --maxfail=0 --disable-warnings -q
+          pytest tests/ --maxfail=0 --disable-warnings -q
 
       - name: Lint Python code
         run: |
