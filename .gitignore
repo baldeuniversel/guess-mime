@@ -1,0 +1,3 @@
+.venv/ 
+.vscode/ 
+./guess_mime.egg-info/

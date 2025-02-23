@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+setup.py
+guess_mime/__init__.py
+guess_mime/guess_mime.py
+guess_mime/main.py
+guess_mime.egg-info/PKG-INFO
+guess_mime.egg-info/SOURCES.txt
+guess_mime.egg-info/dependency_links.txt
+guess_mime.egg-info/entry_points.txt
+guess_mime.egg-info/requires.txt
+guess_mime.egg-info/top_level.txt
+tests/__init__.py
+tests/test_guess_mime.py
