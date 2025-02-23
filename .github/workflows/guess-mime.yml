@@ -68,7 +68,8 @@ jobs:
           #
           if [[ -n "$EXECUTABLE" ]]; 
           then
-            echo "Found executable at $EXECUTABLE"
+            echo "Found executable at ${EXECUTABLE}"
+            ls ${EXECUTABLE}
             
             ### Upload the found executable as an artifact (preprocess)
 
