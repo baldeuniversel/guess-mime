@@ -83,7 +83,7 @@ class GuessMime:
             pass  # If `magic` fails, proceed to use `mimetypes`
 
         # Detect MIME type using file extension (`mimetypes`)
-        mime_type, _ = mimetypes.guess_type(str(file) if file else '')  # Convert Path object to string
+        mime_type, _ = mimetypes.guess_type(str(file) if file else None)  # Convert Path object to string
 
         # Return MIME type if found, otherwise return "unknown/unknown"
         return (mime_type if mime_type else "unknown/unknown", mime_type is not None)
