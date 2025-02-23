@@ -58,18 +58,30 @@ jobs:
       - name: Build executable with PyInstaller
         run: |
           pip install pyinstaller
-          pyinstaller --onefile guess_mime/guess_mime.py
+          pyinstaller --onefile --console --name guess-mime guess_mime/guess_mime.py
           
       - name: Find and copy built executable
         run: |
           # Use `find` to dynamically locate the built executable in the dist folder
-          EXECUTABLE=$(find dist -type f -name "guess-mime" -executable)
-          if [[ -n "$EXECUTABLE" ]]; then
-            echo "Found executable at $EXECUTABLE"
-            # Upload the found executable as an artifact
+          EXECUTABLE=$(find ./dist -type f -name "guess-mime" -executable 2> /dev/null | head -n 1)
+
+          #
+          if [[ -n "$EXECUTABLE" ]]; 
+          then
+            echo "Found executable at ${EXECUTABLE}"
+            
+            ### Upload the found executable as an artifact (preprocess)
+
+            #
             mkdir -p output
-            cp "$EXECUTABLE" output/"${EXECUTABLE}-${GUESS_MIME_VERSION}"
-            echo "Executable copied to output directory"
+
+            # Copy the executable
+            cp "$EXECUTABLE" output/
+            echo "Executable copied to \`output\` directory"
+            
+            # Rename the executable by adding the version
+            mv "$EXECUTABLE" "${EXECUTABLE}-${GUESS_MIME_VERSION}"
+            
           else
             echo "Error: Executable not found!"
             exit 1
