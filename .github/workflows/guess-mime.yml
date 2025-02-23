@@ -43,8 +43,8 @@ jobs:
 
       - name: Lint Python code
         run: |
-          pip install flake8
-          flake8 guess_mime tests --max-line-length=128
+          pip install pylint
+          pylint guess_mime tests --fail-under=8
 
       - name: Type checking with mypy
         run: |
