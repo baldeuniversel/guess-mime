@@ -15,11 +15,12 @@ To install all required dependencies, create a virtual environment and use the f
 
 ```bash
 pip install -r requirements.txt 
+```
 
 
 ## About the Author
 
-*Amadou Baldé*  
+**Amadou Baldé**  
 *Developer/Programmer ... | Open Source Contributor*
 
 ### Connect with Me:
