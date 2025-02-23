@@ -6,47 +6,48 @@ import magic
 
 
 
-"""
-A class to determine the MIME type of a file using multiple methods.
-
-This class attempts to determine the MIME type of a given file. It uses the
-`python-magic` library for a reliable MIME type detection based on file content.
-If that fails, it falls back to using `mimetypes` based on file extension.
-
-Attributes:
-    file_path (str): The path of the file whose MIME type is to be determined.
-    file (Path): A Path object representing the file.
-"""
 class GuessMime:
- 
-
     """
-    Initializes the GuessMime instance with the file path.
+    A class to determine the MIME type of a file using multiple methods.
 
-    :param file_path: The path of the file to analyze.
+    This class attempts to determine the MIME type of a given file. It uses the
+    `python-magic` library for a reliable MIME type detection based on file content.
+    If that fails, it falls back to using `mimetypes` based on file extension.
 
-    @constructor
+    Attributes:
+        file_path (str): The path of the file whose MIME type is to be determined.
+        file (Path): A Path object representing the file.
     """
+
+
+
     def __init__(self, file_path:str = None):
+        """
+        Initializes the GuessMime instance with the file path.
+
+        :param file_path: The path of the file to analyze.
+
+        @constructor
+        """
        
         self.file_path = file_path
         self.file = Path(file_path) if file_path else None
 
 
 
-    """
-    Guesses the MIME type of the file.
-
-    This method first tries to determine the MIME type using the `magic` library,
-    which is based on the file's content. If this fails, it attempts to determine the MIME
-    type based on the file extension using the `mimetypes` library.
-
-    :param file_path: The path to the file to analyze. If None, it will use the instance's file path.
-    :return: A tuple containing the MIME type and a boolean indicating if the MIME
-             type was found (`True` if found, `False` if not).
-    :rtype: tuple
-    """
     def guess_mime(self, file_path: str = None) -> tuple[str, bool]:
+        """
+        Guesses the MIME type of the file.
+
+        This method first tries to determine the MIME type using the `magic` library,
+        which is based on the file's content. If this fails, it attempts to determine the MIME
+        type based on the file extension using the `mimetypes` library.
+
+        :param file_path: The path to the file to analyze. If None, it will use the instance's file path.
+        :return: A tuple containing the MIME type and a boolean indicating if the MIME
+                type was found (`True` if found, `False` if not).
+        :rtype: tuple
+        """
 
         # Use the passed file_path or the instance's file_path if no argument is provided
         file_path = file_path or self.file_path

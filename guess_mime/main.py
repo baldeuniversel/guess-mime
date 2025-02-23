@@ -6,26 +6,26 @@ from guess_mime.guess_mime import GuessMime
 
 
 
-"""
-The main entry point for the command-line interface (CLI) of the guess-mime tool.
-
-This function sets up the argument parser to accept a file path as input. It is required 
-to provide **only one file path at a time** for analysis. The program initializes a 
-`GuessMime` object with the provided file path, and outputs the MIME type of the file. 
-It provides feedback to the user regarding whether the MIME type was successfully found 
-(based on the detection method's reliability).
-
-The result is printed in the format (not exactly, but the pattern will be of this nature):
-    MIME: <mime_type> | Confidence: Yes/No
-
-**Usage:**
-1. Provide **exactly one file path** to analyze. For example:
-    `guess-mime <file_path>`
-2. Use `-h` or `--help` to get more information about usage.
-
-:note: Only **one file path** can be provided at a time.
-"""
 def main():
+    """
+    The main entry point for the command-line interface (CLI) of the guess-mime tool.
+
+    This function sets up the argument parser to accept a file path as input. It is required 
+    to provide **only one file path at a time** for analysis. The program initializes a 
+    `GuessMime` object with the provided file path, and outputs the MIME type of the file. 
+    It provides feedback to the user regarding whether the MIME type was successfully found 
+    (based on the detection method's reliability).
+
+    The result is printed in the format (not exactly, but the pattern will be of this nature):
+        MIME: <mime_type> | Confidence: Yes/No
+
+    **Usage:**
+    1. Provide **exactly one file path** to analyze. For example:
+        `guess-mime <file_path>`
+    2. Use `-h` or `--help` to get more information about usage.
+
+    :note: Only **one file path** can be provided at a time.
+    """
 
     # Check if there are no argument (just the program name)
     if len(sys.argv) == 1:
