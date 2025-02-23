@@ -64,6 +64,7 @@ jobs:
         run: |
           # Use `find` to dynamically locate the built executable in the dist folder
           EXECUTABLE=$(find dist -type f -name "guess-mime" -executable)
+          find dist -type f -name "guess-mime" -executable
 
           #
           if [[ -n "$EXECUTABLE" ]]; 
