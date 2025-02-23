@@ -87,4 +87,4 @@ class GuessMime:
         mime_type, _ = mimetypes.guess_type(str(file) if file else '')   # Convert Path object to string
 
         # Return MIME type if found, otherwise return "unknown/unknown"
-        return (mime_type if mime_type else "unknown/unknown", mime_type is not None)
+        return (mime_type if mime_type and mime_type != '' else "unknown/unknown", mime_type is not None)
