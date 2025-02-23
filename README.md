@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ## About the Author
 
-**Amadou Baldé**  
+*Amadou Baldé*  
 *Developer/Programmer ... | Open Source Contributor*
 
 ### Connect with Me:
