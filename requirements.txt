@@ -1,4 +1,5 @@
--e git+ssh://git@github.com/baldeuniversel/guess-mime.git@ba29534c8adb63ffa141c534927ad92ef5c1acd3#egg=guess_mime
+-e git+https://github.com/baldeuniversel/guess-mime.git@ba29534c8adb63ffa141c534927ad92ef5c1acd3#egg=guess_mime
+
 iniconfig==2.0.0
 packaging==24.2
 pluggy==1.5.0
