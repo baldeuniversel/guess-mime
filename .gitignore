@@ -5,4 +5,5 @@ guess_mime.egg-info/
 *.pyc
 *.pyo
 *.pyd
+dist/
 
