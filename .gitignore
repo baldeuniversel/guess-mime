@@ -6,4 +6,5 @@ guess_mime.egg-info/
 *.pyo
 *.pyd
 dist/
+*.pipyrc
 
