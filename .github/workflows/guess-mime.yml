@@ -27,7 +27,7 @@ jobs:
       - name: Cache Python dependencies
         uses: actions/cache@v2
         with:
-          path: ~/.cache/pip
+          
           key: ${{ runner.os }}-python-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-python-
