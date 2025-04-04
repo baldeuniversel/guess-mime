@@ -17,11 +17,11 @@ class GuessMime:
 
     This class attempts to determine the MIME type of a given file. It uses the
     `python-magic` library for a reliable MIME type detection based on file content.
-    If that fails, it falls back to using `mimetypes` based on file extension.
+    If that fails, it falls back to using `mimetypes` based on file extension (a priori).
 
     Attributes:
-        file_path (str): The path of the file whose MIME type is to be determined.
-        file (Path): A Path object representing the file.
+        file_path {str} : The path of the file whose MIME type is to be determined.
+        file {Path} : A Path object representing the file.
     """
 
 
@@ -30,7 +30,7 @@ class GuessMime:
         """
         Initializes the GuessMime instance with the file path.
 
-        :param file_path: The path of the file to analyze.
+        :param file_path {str|optional} : The path of the file to analyze.
 
         @constructor
         """
@@ -48,12 +48,22 @@ class GuessMime:
 
         This method first tries to determine the MIME type using the `magic` library,
         which is based on the file's content. If this fails, it attempts to determine the MIME
-        type based on the file extension using the `mimetypes` library.
+        type based on the file extension (a priori) using the `mimetypes` library.
 
-        :param file_path: The path to the file to analyze. If None, it will use the instance's file path.
+        :param file_path {str|optional} : The path to the file to analyze. If None, it will use the instance's file path.
+
         :return: A tuple containing the MIME type and a boolean indicating if the MIME
                 type was found (`True` if found, `False` if not).
-        :rtype: tuple
+        :rtype: tuple.
+
+        use cage:
+            success:
+                -> action : object.guess_mime('hello.mp4')
+                -> return : ("video/mp4", True)
+
+            error:
+                -> action : object.guess_mime('hello_up.mp4')
+                -> return : ("unknown/unknown", False)
         """
 
         # Use the passed file_path or the instance's file_path if no argument is provided
@@ -83,8 +93,10 @@ class GuessMime:
         except Exception:
             pass  # If `magic` fails, proceed to use `mimetypes`
 
-        # Detect MIME type using file extension (`mimetypes`)
-        mime_type, _ = mimetypes.guess_type(str(file) if file else '')   # Convert Path object to string
+        # Detect MIME type using file extension (`mimetypes`, a priori)
+        mime_type, _ = mimetypes.guess_type(str(file) if file else '') # Convert Path object to string
 
-        # Return MIME type if found, otherwise return "unknown/unknown"
+        # Return a tuple containing the MIME type and a boolean value.
+        # If the mime type has been found : [ e.g -> ("video/mp4", True) ].
+        # Otherwise : [ e.g -> ("unknown/unknown", False) ]
         return (mime_type if mime_type and mime_type != '' else "unknown/unknown", mime_type is not None)
