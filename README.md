@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ### Install program
 To install the program of cloning the repo `https://github.com/baldeuniversel/guess-mime.git`, execute 
-this command (be sure to specify the **correct path** ~ once in the **guess-mime** directory): 
+this command (be sure to specify the **correct path** ~ once in the **guess-mime** directory) : 
 ```bash
 pip install dist/guess_mime-1.0.0-py3-none-any.whl
 ```
