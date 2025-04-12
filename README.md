@@ -1,6 +1,7 @@
 # guess-mime
 
-`guess-mime` is a Python project that detects the MIME type of a file. It utilizes both the `python-magic` library for more accurate detection and the built-in `mimetypes` module as a fallback.
+`guess-mime` is a Python project that detects the MIME type of a file. It utilizes both the `python-magic` library for more accurate 
+detection and the built-in `mimetypes` module as a fallback.
 
 ## Features
 - Detects MIME type of a given file.
@@ -11,12 +12,17 @@
 ## Installation
 
 ### Install dependencies
-To install all required dependencies, create a virtual environment and use the following command:
-
+To install all required dependencies, create a virtual environment and use the following command (once in the **guess-mime** directory) :
 ```bash
 pip install -r requirements.txt 
 ```
 
+### Install program
+To install the program of cloning the repo `https://github.com/baldeuniversel/guess-mime.git`, execute 
+this command (be sure to specify the **correct path** ~ once in the **guess-mime** directory): 
+```bash
+pip install dist/guess_mime-1.0.0-py3-none-any.whl
+```
 
 ## About the Author
 
