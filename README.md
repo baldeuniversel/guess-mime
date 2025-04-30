@@ -7,7 +7,7 @@ detection and the built-in `mimetypes` module as a fallback.
 ## 📚 Summary
 - [Features](#features)  
 - [Installation](#installation)   
-- [Use case (after installing the program)](#use-cases-after-installing-the-program)  
+- [Use cases (after installing the program)](#use-cases-after-installing-the-program)  
 - [About the Author](#about-the-author)  
 - [License](#license)
 
