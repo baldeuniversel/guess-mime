@@ -5,10 +5,9 @@ detection and the built-in `mimetypes` module as a fallback.
 ---
 
 ## 📚 Summary
-
 - [Features](#features)  
 - [Installation](#installation)   
-- [Use case (after installing the program)](#use-case-after-installing-the-program)  
+- [Use case (after installing the program)](#use-cases-after-installing-the-program)  
 - [About the Author](#about-the-author)  
 - [License](#license)
 
@@ -34,7 +33,7 @@ this command (be sure to specify the **correct path** ~ once in the **guess-mime
 pip install dist/guess_mime-1.0.0-py3-none-any.whl
 ```
 
-## Use case (after installing the program)
+## Use cases (after installing the program)
 ### Use Case 1 — Detect a mp4 file
 ```
 success:
@@ -43,7 +42,7 @@ success:
 
 error:
     -> action : guess-mime corrupted_video_file.mp4
-    -> return : 🎉 MIME Type: unknown/unknown | Confidence: NO ❌
+    -> output : 🎉 MIME Type: unknown/unknown | Confidence: NO ❌
 ```
 
 ### Use Case 2 — Detect a text plain file 
