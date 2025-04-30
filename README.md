@@ -24,6 +24,29 @@ this command (be sure to specify the **correct path** ~ once in the **guess-mime
 pip install dist/guess_mime-1.0.0-py3-none-any.whl
 ```
 
+## Use case (after installing the program)
+### Use Case 1 — Detect a mp4 file
+```
+success:
+    -> action : guess-mime video_file.mp4
+    -> output : 🎉 MIME Type: video/mp4 | Confidence: YES ✅
+
+error:
+    -> action : guess-mime corrupted_video_file.mp4
+    -> return : 🎉 MIME Type: unknown/unknown | Confidence: NO ❌
+```
+
+### Use Case 2 — Detect a text plain file 
+```
+success:
+    -> action : guess-mime text_file.txt
+    -> output : 🎉 MIME Type: text/plain | Confidence: YES ✅
+
+error:
+    -> action : guess-mime corrupted_text_file.txt
+    -> output : 🎉 MIME Type: unknown/unknown | Confidence: NO ❌
+```
+
 ## About the Author
 
 **Amadou Baldé**  
