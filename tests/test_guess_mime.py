@@ -3,7 +3,7 @@
 """
 
 import os
-from guess_mime.guess_mime import GuessMime
+from guess_mime.GuessMime import GuessMime
 
 
 
