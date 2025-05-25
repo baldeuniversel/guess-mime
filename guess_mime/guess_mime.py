@@ -4,8 +4,8 @@
 
 from pathlib import Path
 import mimetypes
-import magic
 from typing import Optional
+import magic
 
 
 
