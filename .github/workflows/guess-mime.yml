@@ -51,9 +51,10 @@ jobs:
           pip install mypy
           mypy guess_mime
 
-      - name: Build the package
+      - name: Build the package (wheel)
         run: |
-          python setup.py sdist bdist_wheel
+          pip install build
+          python -m build 
 
       - name: Build executable with PyInstaller
         run: |
