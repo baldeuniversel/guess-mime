@@ -51,10 +51,15 @@ jobs:
           pip install mypy
           mypy guess_mime
 
-      - name: Build the package (wheel)
+      - name: Build and copy the package (wheel)
         run: |
           pip install build
-          python -m build 
+          python -m build
+          
+          # Copy the wheel 
+          echo "Copy the wheel -> cp -r  dist/*.whl output"
+          mkdir -p output 2> /dev/null
+          cp -r  dist/*.whl output 
 
       - name: Build executable with PyInstaller
         run: |
@@ -72,9 +77,6 @@ jobs:
             echo "Found executable at ${EXECUTABLE}"
             
             ### Upload the found executable as an artifact (preprocess)
-
-            #
-            mkdir -p output
 
             # Copy the executable
             cp "$EXECUTABLE" output/
