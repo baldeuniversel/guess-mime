@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "guess-mime"
+version = "1.0.0"
+description = "Detects the MIME type of a file"
+authors = ["Amadou Baldé (github/baldeuniversel ~ baldeuniversel@protonmail.com)"]
+
+license = "MIT"
+readme = "README.md"
+
+repository = "https://github.com/baldeuniversel/guess-mime"
+homepage = "https://github.com/baldeuniversel/guess-mime"
+documentation = "https://github.com/baldeuniversel/guess-mime/wiki"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-magic = "^0.4.27"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,96 @@
+name: guess-mime
+
+env:
+  guess-mime-version: 1.0.0
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-python-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-python-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          pytest tests/ --maxfail=0 --disable-warnings -q
+
+      - name: Lint Python code
+        run: |
+          pip install pylint
+          pylint --disable=trailing-whitespace,line-too-long guess_mime/ tests/ --fail-under=8
+
+      - name: Type checking with mypy
+        run: |
+          pip install mypy
+          mypy guess_mime
+
+      - name: Build the package
+        run: |
+          python setup.py sdist bdist_wheel
+
+      - name: Build executable with PyInstaller
+        run: |
+          pip install pyinstaller
+          pyinstaller guess-mime.spec
+          
+      - name: Find and copy built executable
+        run: |
+          # Use `find` to dynamically locate the built executable in the dist folder
+          EXECUTABLE=$(find ./dist -type f -name "guess-mime" -executable 2> /dev/null | head -n 1)
+
+          #
+          if [[ -n "$EXECUTABLE" ]]; 
+          then
+            echo "Found executable at ${EXECUTABLE}"
+            
+            ### Upload the found executable as an artifact (preprocess)
+
+            #
+            mkdir -p output
+
+            # Copy the executable
+            cp "$EXECUTABLE" output/
+            echo "Executable copied to \`output\` directory"
+            
+            # Rename the executable by adding the version
+            mv "$EXECUTABLE" "${EXECUTABLE}-${GUESS_MIME_VERSION}"
+            
+          else
+            echo "Error: Executable not found!"
+            exit 1
+          fi
+        env:
+          GUESS_MIME_VERSION: ${{ env.guess-mime-version }}
+      
+      - name: Upload built executable as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: guess-mime  
+          path: output/ 
