@@ -105,21 +105,19 @@ class GuessMime:
         # Try detecting MIME type using the `magic` library (more reliable, based on content)
         try:
 
-            with self.suppress_stderr():
+            magic_file_path = os.environ.get("MAGIC_FILE")
 
-                magic_file_path = os.environ.get("MAGIC_FILE")
+            if magic_file_path and os.path.exists(magic_file_path):
+                mime = magic.Magic(mime=True, magic_file=magic_file_path)
 
-                if magic_file_path and os.path.exists(magic_file_path):
-                    mime = magic.Magic(mime=True, magic_file=magic_file_path)
+            else:
+                mime = magic.Magic(mime=True)
 
-                else:
-                    mime = magic.Magic(mime=True)
+            
+            mime_type: Optional[str] = mime.from_file(str(file))
 
-                
-                mime_type: Optional[str] = mime.from_file(str(file))
-
-                if mime_type:
-                    return (mime_type, True)
+            if mime_type:
+                return (mime_type, True)
             
         except Exception:
             pass  # If `magic` fails, proceed to use `mimetypes`
