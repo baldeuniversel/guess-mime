@@ -4,7 +4,7 @@
 
 import sys
 import argparse
-from guess_mime.guess_mime import GuessMime
+from .guess_mime import GuessMime
 
 
 
