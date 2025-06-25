@@ -45,6 +45,11 @@ jobs:
         run: |
           pip install pylint
           pylint --disable=trailing-whitespace,line-too-long guess_mime/ tests/ --fail-under=8
+      
+      - name: Type checking with mypy
+        run: |
+          pip install mypy
+          mypy guess_mime
 
       - name: Build and copy the package (wheel)
         run: |
