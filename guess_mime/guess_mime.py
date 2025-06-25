@@ -1,7 +1,7 @@
 """
 @overview The class of the `guess-mime` program
 """
-
+import os
 from pathlib import Path
 import mimetypes
 from typing import Optional
@@ -83,10 +83,16 @@ class GuessMime:
         # Try detecting MIME type using the `magic` library (more reliable, based on content)
         try:
 
-            mime = magic.Magic(mime=True)
-            mime_type: Optional[str] = mime.from_file(str(file))  # mime_type can be Optional[str]
+            magic_file_path = os.environ.get("MAGIC_FILE")
 
-            #
+            if magic_file_path and os.path.exists(magic_file_path):
+                mime = magic.Magic(mime=True, magic_file=magic_file_path)
+
+            else:
+                mime = magic.Magic(mime=True)
+
+            mime_type: Optional[str] = mime.from_file(str(file))
+
             if mime_type:
                 return (mime_type, True)
             

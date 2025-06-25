@@ -4,7 +4,7 @@
 
 import sys
 import argparse
-from .guess_mime import GuessMime
+import guess_mime
 
 
 
@@ -61,7 +61,7 @@ def main():
     args = parser.parse_args()
     
     # Create an instance of the GuessMime class using the provided file path
-    guess_mime_instance = GuessMime(args.file)
+    guess_mime_instance = guess_mime.GuessMime(args.file)
     
     # Call the guess_mime method to determine the MIME type and confidence
     mime, found = guess_mime_instance.guess_mime()
