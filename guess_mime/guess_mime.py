@@ -84,6 +84,7 @@ class GuessMime:
         try:
 
             magic_file_path = os.environ.get("MAGIC_FILE")
+            print(f"📦 Using magic file at: {magic_file_path}")
 
             if magic_file_path and os.path.exists(magic_file_path):
                 mime = magic.Magic(mime=True, magic_file=magic_file_path)
