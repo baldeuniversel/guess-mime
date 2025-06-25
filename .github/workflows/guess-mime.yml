@@ -59,7 +59,7 @@ jobs:
       - name: Build executable with PyInstaller
         run: |
           pip install pyinstaller
-          pyinstaller guess-mime.spec
+          pyinstaller guess_mime.spec
           
       - name: Find and copy built executable
         run: |
