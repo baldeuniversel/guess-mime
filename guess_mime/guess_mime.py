@@ -106,8 +106,8 @@ class GuessMime:
         try:
 
             with self.suppress_stderr():
-                
-                magic_file_path = os.environ.get("MAGIC_FILE")
+
+                magic_file_path = os.environ.get("MAGIC_FILE", "/snap/guess-mime/current/usr/share/misc/magic.mgc")
 
                 if magic_file_path and os.path.exists(magic_file_path):
                     mime = magic.Magic(mime=True, magic_file=magic_file_path)
