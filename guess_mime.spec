@@ -16,7 +16,7 @@ for dirpath, dirnames, filenames in os.walk('assets'):
 
 
 a = Analysis(
-    ['main.py'],
+    ['guess_mime/main.py'],
     pathex=[],
     binaries=[],
     datas=array_data,
