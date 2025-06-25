@@ -11,7 +11,7 @@ setup(
     install_requires=["python-magic"],
     entry_points={
         "console_scripts": [
-            "guess-mime=guess_mime.main:main",
+            "guess-mime=main:main",
         ],
     },
     author="Amadou Baldé (baldeuniversel@protonmail.com)",
