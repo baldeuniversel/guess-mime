@@ -6,6 +6,7 @@ from pathlib import Path
 import mimetypes
 from typing import Optional
 import magic
+import contextlib
 
 
 
@@ -39,6 +40,27 @@ class GuessMime:
 
         # Optional[Path] means it can either be a Path or None
         self.file: Optional[Path] = Path(file_path) if file_path else None
+
+
+
+    @contextlib.contextmanager
+    def suppress_stderr(self):
+        """
+        @overview Context manager to temporarily suppress all output sent to standard error (stderr).
+        Redirects stderr to /dev/null during the context, effectively silencing error messages from 
+        underlying C libraries or other noisy dependencies.
+        """
+
+        with open(os.devnull, 'w') as devnull:
+
+            old_stderr = os.dup(2)
+            os.dup2(devnull.fileno(), 2)
+
+            try:
+                yield
+
+            finally:
+                os.dup2(old_stderr, 2)
 
 
 
@@ -84,7 +106,6 @@ class GuessMime:
         try:
 
             magic_file_path = os.environ.get("MAGIC_FILE")
-            print(f"📦 Using magic file at: {magic_file_path}")
 
             if magic_file_path and os.path.exists(magic_file_path):
                 mime = magic.Magic(mime=True, magic_file=magic_file_path)
@@ -92,7 +113,8 @@ class GuessMime:
             else:
                 mime = magic.Magic(mime=True)
 
-            mime_type: Optional[str] = mime.from_file(str(file))
+            with self.suppress_stderr():
+                mime_type: Optional[str] = mime.from_file(str(file))
 
             if mime_type:
                 return (mime_type, True)
